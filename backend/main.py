@@ -28,3 +28,24 @@ async def get_all_companies():
     logger.info("Fetched all companies")
     return JSONResponse(content=companies)
 
+@app.get("/companies/{company_id}", summary="Get company details by ID", response_description="Company details for the particular ID")
+async def get_company_by_id(company_id: str):
+    company = next((c for c in companies if c["company_id"] == company_id), None)
+    if not company:
+        logger.warning(f"Company with ID {company_id} not found")
+        raise HTTPException(status_code=404, detail="Company not found")
+    logger.info(f"Fetched company details for ID {company_id}")
+    return JSONResponse(content=company)
+
+@app.get("/companies/{company_id}/locations", summary="Get all locations for a specific company ID", response_description="List of all locations for the given company ID")
+async def get_locations_by_company_id(company_id: str):
+    company = next((c for c in companies if c["company_id"] == company_id), None)
+    if not company:
+        logger.warning(f"Company with ID {company_id} not found")
+        raise HTTPException(status_code=404, detail="Company not found")
+    company_locations = [loc for loc in locations if loc["company_id"] == company_id]
+    if not company_locations:
+        logger.warning(f"No locations found for company ID {company_id}")
+        raise HTTPException(status_code=404, detail="No locations found for this company")
+    logger.info(f"Fetched locations for company ID {company_id}")
+    return JSONResponse(content=company_locations)
