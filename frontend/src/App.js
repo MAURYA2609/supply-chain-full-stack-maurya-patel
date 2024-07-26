@@ -1,25 +1,36 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import CompanyList from './components/CompanyList';
+import CompanyDetails from './components/CompanyDetails';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Sidebar from './components/Sidebar';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    const [searchQuery, setSearchQuery] = useState('');
+
+    const handleSearch = (e) => {
+        setSearchQuery(e.target.value);
+    };
+
+    return (
+        <Router>
+            <div className="app">
+                <Header onSearch={handleSearch} />
+                <div className="main">
+                    <Sidebar />
+                    <div className="content">
+                        <Routes>
+                            <Route path="/" element={<CompanyList onSearch={searchQuery} />} />
+                            <Route path="/details/:companyId" element={<CompanyDetails />} />
+                        </Routes>
+                    </div>
+                </div>
+                <Footer />
+            </div>
+        </Router>
+    );
+};
 
 export default App;

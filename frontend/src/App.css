@@ -1,38 +1,89 @@
-.App {
+/* Additional styles if needed */
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  background-color: #282c34;
+  padding: 1rem;
+  color: white;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header input {
+  width: 100%;
+  max-width: 400px;
+  padding: 0.5rem;
+  margin-top: 1rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.sidebar {
+  background-color: #f8f9fa;
+  padding: 1rem;
+  width: 200px;
+  flex-shrink: 0;
 }
 
-.App-header {
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 1rem;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: #000;
+}
+
+.footer {
   background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: auto;
 }
 
-.App-link {
+.footer a {
   color: #61dafb;
+  margin: 0 1rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.main {
+  display: flex;
+  flex: 1;
+}
+
+.content {
+  flex: 1;
+  padding: 1rem;
+}
+
+.company-details {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.company-details h2 {
+  margin-bottom: 1rem;
+}
+
+.company-details p {
+  margin-bottom: 2rem;
+}
+
+
+.map-container {
+  height: 400px; 
+  width: 400px;
+  margin-top: 1rem;
+}
+
+.leaflet-container {
+  height: 100%;
+  width: 100%;
 }
