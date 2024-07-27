@@ -8,7 +8,6 @@ This project is a full-stack application that includes a backend API built with 
 ## Table of Contents
 
 - [Prerequisites](#prerequisites)
-- [Project Structure](#project-structure)
 - [Setup Instructions](#setup-instructions)
   - [Clone the Repository](#clone-the-repository)
   - [Backend Setup](#backend-setup)
@@ -23,34 +22,6 @@ This project is a full-stack application that includes a backend API built with 
 - Docker Desktop installed
 - Node.js and npm installed
 - Python installed
-
-## Project Structure
-
-```
-supply-chain-full-stack-maurya-patel/
-│
-├── backend/
-│   ├── app/
-│   │   ├── main.py
-│   │   └── other_files...
-│   ├── requirements.txt
-│   └── Dockerfile
-│
-├── frontend/
-│   ├── public/
-│   │   └── index.html
-│   ├── src/
-│   │   ├── components/
-│   │   │   ├── CompanyList.js
-│   │   │   ├── CompanyDetails.js
-│   │   │   └── other_components...
-│   │   ├── App.js
-│   │   └── index.js
-│   ├── package.json
-│   └── Dockerfile
-│
-└── docker-compose.yml
-```
 
 ## Setup Instructions
 
